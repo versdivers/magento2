@@ -158,15 +158,15 @@ class TransportBuilder
         return $this;
     }
 
-    /**
+   /**
      * Set mail from address
      *
      * @param string|array $from
      * @return $this
      */
-    public function setFrom($from)
+    public function setFrom($from, $store = null)
     {
-        $result = $this->_senderResolver->resolve($from);
+        $result = $this->_senderResolver->resolve($from, $store);
         $this->message->setFrom($result['email'], $result['name']);
         return $this;
     }
